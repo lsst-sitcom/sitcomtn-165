@@ -2,6 +2,7 @@
 \input{meta}
 
 % Package imports go here.
+\usepackage{graphicx}   % for \includegraphics
 
 % Local commands go here.
 
@@ -35,7 +36,7 @@ First Last
 % \setDocCurator{The Curator of this Document}
 
 \setDocAbstract{%
-We measure the surface brightness profile around two galaxies in Rubin ComCam data. We compare with the results from DECaLS and test different background subtraction strategies.
+We measure the surface brightness profile around two elliptical galaxies in LSSTComCam data in g, r, i bands. We compare with the results from DECaLS and test different background subtraction strategies. We find ...
 }
 
 % Change history defined here.
@@ -57,21 +58,50 @@ We measure the surface brightness profile around two galaxies in Rubin ComCam da
 % ADD CONTENT HERE
 % You can also use the \input command to include several content files.
 
+\section{Introduction}
+
+\section{Data}
+The Rubin data we use in this paper is from the Data Preview 1 (DP1). DP1 data is based on the reprocessing of exposures acquired over 48 nights during the first on-sky comissioning campaign using the Rubin Comissioning Camera, LSSTComcam between November 2024 and December 2024 \cite{ComCam}. DP1 covers 7 distinct non-contiguous fields with a total area of 15 sq. deg. Among the the seven fields are the Rubin SV Low Ecliptic Latitude Field (Rubin SV 38 7), in which the galaxy cluster Abell 360 locates and Extended Chandra Deep Field South (ECDFS), in which galaxy galaxy 2dFGRS TGS323Z113. The Rubin SV 38 7 field has a totl 159 visits in g, r, i, z bands and ECDFS has a total of 855 visits in u,g,r,i,z,y bands. 
+
+We use the the photometry measured with Legacyhalos \cite{liReachingEdgeProbing2022,moustakasSienaGalaxyAtlas2023} from Legacy Survey Data Release 9 data as a comparison. Legacy Survey DR9 data (LS DR9) \cite{schlegelDESILegacyImaging2021} is designed to provide faint extragalactic targets for the Dark Energy Spectroscopic Instrument's cosmological survey. LS DR9 includes g, r, and z-band data from Dark Energy Camera Legacy Survey (DECaLS), the Beijing-Arizona Sky Survey (BASS), and the Mayall z-band Legacy Survey (MzLS), and public data from the Dark Energy Survey (DES). In this work we only use the data from DECaLS. The images were first processed with the NOAO community pipeline and Tractor algorithm. Then a photometry pipeline optimized for elliptical galaxies, Legacyhalos, is used to measure the surfacebrightness profile around a set of targets. A subset of the legacyhalos measurements were compared with Hyper-Suprime Cam survey measurements and show excellent agreements in a statistical sense to $R > 200$ kpc \cite{liReachingEdgeProbing2022}. 
+
+\begin{figure}[htbp]
+  \centering
+  % adjust width as you like (e.g. 0.8\linewidth, or specify height)
+  \includegraphics[width=0.8\linewidth]{figures/r_image.pdf}
+  \caption{r-band coadd image of the BCG of A360 and 2dFGRS TGS323Z113 }
+  \label{fig:r_image}
+\end{figure}
+
+
+\section{Surface brightness profile}
+
+
+
+\begin{figure}[htbp]
+  \centering
+  % adjust width as you like (e.g. 0.8\linewidth, or specify height)
+  \includegraphics[width=0.8\linewidth]{figures/r_image.pdf}
+  \caption{r-band coadd image of the BCG of A360 and 2dFGRS TGS323Z113 with other sources masked.}
+  \label{fig:r_image}
+\end{figure}
+
+\section{Comparison w/ DECaLS}
+
+\section{Impact of background subtraction}
+
+
 \appendix
 % Include all the relevant bib files.
 % https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
 \section{References} \label{sec:bib}
 \renewcommand{\refname}{} % Suppress default Bibliography section
-\bibliography{local,lsst,lsst-dm,refs_ads,refs,books}
+\bibliography{local,lsst,lsst-dm,refs_ads,refs,books,mylib}
 
 % Make sure lsst-texmf/bin/generateAcronyms.py is in your path
 \section{Acronyms} \label{sec:acronyms}
 \input{acronyms.tex}
 % If you want glossary uncomment below -- comment out the two lines above
 %\printglossaries
-
-
-
-
 
 \end{document}
