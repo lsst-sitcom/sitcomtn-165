@@ -1,4 +1,4 @@
-\documentclass[SE,lsstdraft,authoryear,toc]{lsstdoc}
+\documentclass[SE, authoryear,toc]{lsstdoc}
 \input{meta}
 
 % Package imports go here.
@@ -18,7 +18,7 @@
 % Update keywords and author information as necessary.
 \hypersetup{
     pdftitle={Surface brightness profiles around massive galaxies in LSSTComCam data},
-    pdfauthor={Conghao Zhou, Tesla Jeltema, Anja von der Linden, Alexie Leauthaud},
+    pdfauthor={Conghao Zhou, Tesla Jeltema, Anja von der Linden, Lee S. Kelvin, Ian Dell’Antonio, Dan S. Taranu, Anthony Englert, Alexie Leauthaud},
     pdfkeywords={}
 }
 
@@ -45,11 +45,12 @@ Low surface brightness photometry of massive galaxies can probe the extended ste
 % Fields: VERSION, DATE, DESCRIPTION, OWNER NAME.
 % See LPM-51 for version number policy.
 \setDocChangeRecord{%
-  \addtohist{1}{YYYY-MM-DD}{Unreleased.}{First Last}
+  \addtohist{1}{2025-11-10}{Draft for release.}{Conghao Zhou}
 }
 
 
 \begin{document}
+\author{Conghao Zhou, Tesla Jeltema, Anja von der Linden, Lee S. Kelvin, Ian Dell’Antonio, Dan S. Taranu, Anthony Englert, Alexie Leauthaud}
 
 % Create the title page.
 \maketitle
@@ -84,14 +85,14 @@ In this section, we describe the method we use to extract surface brightness pro
 \label{tab:lsb}
 \centering
 \begin{tabular}{lcc}
-\textbf{Band} & \textbf{A360} & \textbf{2dFGRS TGS323Z113} \\
+\textbf{Band} & \textbf{Abell 360} & \textbf{2dFGRS TGS323Z113} \\
 \multicolumn{3}{c}{$\mu_{\rm lim}$ (10$''\!\times$10$''$, 5$\sigma$) [mag arcsec$^{-2}$]}\\
 \hline
 $g$ & 28.18 & 29.81 \\
 $r$ & 28.49 & 30.20 \\
 $z$ & 26.70 & 28.48 \\
 \end{tabular}
-\caption{Limiting surface brightness for 10$''\!\times$10$''$ boxes.}
+\caption{Limiting surface brightness for 10$''\!\times$10$''$ boxes for Abell 360 and 2dFGRS TGS323Z113 in $g, r, z$ bands.}
 \end{table}
 
 \begin{figure}[htbp]
@@ -104,7 +105,7 @@ $z$ & 26.70 & 28.48 \\
 
 \section{Comparison with DECaLS}
 
-In this section, we compare the Rubin LSSTComCam measurement with the low surface brightness photometry from DECaLS with \textsc{legacyhalos}. We briefly describe the DECaLS measurement and refer readers to \citet{2022MNRAS.515.5335L} and \citet{2023ApJS..269....3M} for more details.  \lhalos first find CCDs that overlap in a 500kpc $\times$ 500kpc area on the sky. Then \lhalos builds a mosaic of the overlap with constant flux offsets added to each CCD image to ensure consistent backgrounds in between CCDs. For each CCD, we subtract the median sky background in a $[250, 275]$ kpc annulus at the redshift of the galaxy after masking out other sources in the annulus \citep{2022MNRAS.515.5335L}. We then project the background-subtracted images onto a tangent plane with Lanczos-3 interpolation kernel and build the image stack using inverse variance weighting. We then mask all sources identified by \textsc{The tractor} \citep{2016ascl.soft04008L} except for the massive galaxy of interest. We visually confirm that the unmasked region around the galaxy of interest is similar in DECaLS and LSSTComCam data. With the masked image, we then use \textsc{photutils} to measure the surface brightness profile at a given major axis length with $3\sigma$ outlier clipping \citep{2018MNRAS.475.3348H, 2022MNRAS.515.5335L}. In Figure~\ref{fig:comparison}, we show the comparison between of surface brightness profiles from LSSTComCam data and DECaLS data. We see that the surface brightness profiles agree well between LSSTComCam and DECaLS, and LSSTComCam data can go deeper, especially in the $g$ band and $r$ band.
+In this section, we compare the Rubin LSSTComCam measurement with the low surface brightness photometry from DECaLS with \textsc{legacyhalos}. We briefly describe the DECaLS measurement and refer readers to \citet{2022MNRAS.515.5335L} and \citet{2023ApJS..269....3M} for more details.  \lhalos first find CCDs that overlap in a 500kpc $\times$ 500kpc area on the sky. Then \lhalos builds a mosaic of the overlap with constant flux offsets added to each CCD image to ensure consistent backgrounds in between CCDs. For each CCD, we subtract the median sky background in a $[250, 275]$ kpc annulus at the redshift of the galaxy after masking out other sources in the annulus \citep{2022MNRAS.515.5335L}. We then project the background-subtracted images onto a tangent plane with Lanczos-3 interpolation kernel and build the image stack using inverse variance weighting. We then mask all sources identified by \textsc{The tractor} \citep{2016ascl.soft04008L} except for the massive galaxy of interest. We visually confirm that the unmasked region around the galaxy of interest is similar in DECaLS and LSSTComCam data. With the masked image, we then use \textsc{photutils} to measure the surface brightness profile at a given major axis length with $3\sigma$ outlier clipping \citep{2018MNRAS.475.3348H, 2022MNRAS.515.5335L}. In Figure~\ref{fig:comparison}, we show the comparison between of surface brightness profiles from LSSTComCam data and DECaLS data. We see that the surface brightness profiles agree well between LSSTComCam and DECaLS, and LSSTComCam data can go deeper, especially in the $g$ band and $r$ band. For 2dFGRS TGS323Z113, the DECaLS profiles flattens out in the outskirt, most likely due to the undersubtract light around this individual galaxy. We choose not to subtract again this floor to be consistent with the conclusion draw from a statistical sample from previous data. 
 
 
 \begin{figure}[!htbp]
